@@ -18,14 +18,873 @@
             background: #0f0f0f;
             overflow-x: hidden;
         }
-        /* FULL CSS FROM YOUR FIRST BLOCK ... */
-        /* [truncated here for brevity, but will be pasted in entirety in the commit] */
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .pre-headline {
+            font-size: 0.9rem;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .hero-subtext {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .data-point {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .cta-container {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.4);
+            background: #b91c1c;
+        }
+
+        .secondary-cta {
+            background: transparent;
+            border: 2px solid #404040;
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .secondary-cta:hover {
+            border-color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        /* Trust Indicators */
+        .trust-bar {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #707070;
+            font-size: 0.95rem;
+        }
+
+        .checkmark {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        /* Problem Section */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+            border-left: 4px solid #dc2626;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .warning-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .symptom-card {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+
+        .symptom-card:hover {
+            border-color: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .symptom-time {
+            color: #dc2626;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .symptom-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .symptom-description {
+            color: #a0a0a0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Data Section */
+        .data-reveal {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .biomarker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .biomarker {
+            text-align: center;
+        }
+
+        .biomarker-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #dc2626;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .biomarker-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .biomarker-impact {
+            color: #707070;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Transformation Section */
+        .transformation-visual {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 16px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 1px solid #2a2a2a;
+        }
+
+        .metrics-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .metric-item {
+            position: relative;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #707070;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+            border-radius: 4px;
+            transition: width 2s ease;
+        }
+
+        .metric-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .before-value {
+            color: #707070;
+        }
+
+        .after-value {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        /* Social Proof */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: #1a1a1a;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-metric {
+            background: rgba(220, 38, 38, 0.1);
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #dc2626;
+            font-size: 1.2rem;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .author-title {
+            color: #707070;
+            font-size: 0.9rem;
+        }
+
+        /* Process Section */
+        .process-timeline {
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .step-description {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Pricing */
+        .pricing-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border: 2px solid #dc2626;
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 600px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .price-period {
+            color: #707070;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .included-list {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .included-value {
+            color: #707070;
+            font-size: 0.9rem;
+            margin-left: 30px;
+        }
+
+        /* Footer CTA */
+        .final-cta {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .deadline-warning {
+            background: #dc2626;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .trust-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .data-reveal {
+                padding: 30px 20px;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <!-- [full HTML content from your first block] -->
-    <!-- ... -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="pre-headline">Based on 90-Day Clinical Data</div>
+            <h1>Your Testosterone is <span class="data-point">37% Lower</span> Than It Should Be</h1>
+            <p class="hero-subtext">
+                And it's destroying your performance. The average UK executive operates at 
+                <span class="data-point">60% capacity</span> due to undiagnosed hormonal decline.
+                We have the blood work to prove it.
+            </p>
+            <p class="hero-subtext">
+                In 90 days, you could reverse 5 years of biological decline using 
+                precision biomarker optimisation. No TRT. No guesswork. Just data.
+            </p>
+            <div class="cta-container">
+                <a href="#transformation" class="cta-button">See The Data →</a>
+                <a href="bloodwork.html" class="secondary-cta cta-button">View Real Results</a>
+            </div>
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="checkmark">✓</span>
+                    <span>Clinical-Grade Testing</span>
+                </div>
+                <div class="trust-item">
+                    <span class="checkmark">✓</span>
+                    <span>40+ Biomarkers Tracked</span>
+                </div>
+                <div class="trust-item">
+                    <span class="checkmark">✓</span>
+                    <span>Guaranteed Improvement</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="container">
+        <h2>The Decline You're Accepting as "Normal Ageing"</h2>
+        <p class="section-subtitle">
+            These aren't inevitable. They're symptoms of measurable deficiencies 
+            that blood work reveals instantly.
+        </p>
+
+        <div class="warning-box">
+            <div class="warning-title">⚠️ If you recognise 3+ of these, your biomarkers need urgent attention:</div>
+        </div>
+
+        <div class="symptom-grid">
+            <div class="symptom-card">
+                <div class="symptom-time">6:30 AM</div>
+                <div class="symptom-title">The Struggle Wake-Up</div>
+                <div class="symptom-description">
+                    Alarm goes off. You're exhausted despite 8 hours sleep. 
+                    Likely indicator: Cortisol rhythm disruption, low vitamin D.
+                </div>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-time">10:00 AM</div>
+                <div class="symptom-title">The Focus Fade</div>
+                <div class="symptom-description">
+                    Two coffees in, still can't concentrate. Brain fog thickening. 
+                    Likely indicator: Testosterone below 400 ng/dL.
+                </div>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-time">2:00 PM</div>
+                <div class="symptom-title">The Afternoon Crash</div>
+                <div class="symptom-description">
+                    Energy gone. Reaching for sugar or more caffeine. 
+                    Likely indicator: Insulin resistance, inflammation markers elevated.
+                </div>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-time">6:00 PM</div>
+                <div class="symptom-title">The Gym Skip</div>
+                <div class="symptom-description">
+                    Too exhausted to train. Again. Recovery takes days now. 
+                    Likely indicator: Free testosterone under 10 pg/mL.
+                </div>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-time">9:00 PM</div>
+                <div class="symptom-title">The Netflix Default</div>
+                <div class="symptom-description">
+                    No energy for anything meaningful. Libido? What libido? 
+                    Likely indicator: Multiple hormone deficiencies compounding.
+                </div>
+            </div>
+            <div class="symptom-card">
+                <div class="symptom-time">11:30 PM</div>
+                <div class="symptom-title">The Wired Exhaustion</div>
+                <div class="symptom-description">
+                    Tired but can't sleep. Mind racing about tomorrow's problems. 
+                    Likely indicator: Cortisol spike when it should be lowest.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section class="container" id="transformation">
+        <h2>The Numbers That Change Everything</h2>
+        <p class="section-subtitle">
+            Average improvements from 90-day Biolytics protocol based on 
+            verified blood test results.
+        </p>
+
+        <div class="data-reveal">
+            <div class="biomarker-grid">
+                <div class="biomarker">
+                    <div class="biomarker-value">+37%</div>
+                    <div class="biomarker-name">Total Testosterone</div>
+                    <div class="biomarker-impact">More drive, better decisions, natural confidence</div>
+                </div>
+                <div class="biomarker">
+                    <div class="biomarker-value">-42%</div>
+                    <div class="biomarker-name">Inflammation (hs-CRP)</div>
+                    <div class="biomarker-impact">Faster recovery, clearer thinking, better mood</div>
+                </div>
+                <div class="biomarker">
+                    <div class="biomarker-value">+156%</div>
+                    <div class="biomarker-name">Vitamin D</div>
+                    <div class="biomarker-impact">Stronger immunity, improved energy, better sleep</div>
+                </div>
+                <div class="biomarker">
+                    <div class="biomarker-value">-38%</div>
+                    <div class="biomarker-name">Cortisol</div>
+                    <div class="biomarker-impact">Less stress, no afternoon crash, deeper sleep</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="transformation-visual">
+            <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px;">What 90 Days Actually Looks Like</h3>
+            <div class="metrics-comparison">
+                <div class="metric-item">
+                    <div class="metric-label">Energy Levels</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 85%;"></div>
+                    </div>
+                    <div class="metric-values">
+                        <span class="before-value">Before: 4/10</span>
+                        <span class="after-value">After: 8.5/10</span>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Mental Clarity</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 80%;"></div>
+                    </div>
+                    <div class="metric-values">
+                        <span class="before-value">Before: 5/10</span>
+                        <span class="after-value">After: 8/10</span>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Sleep Quality</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 75%;"></div>
+                    </div>
+                    <div class="metric-values">
+                        <span class="before-value">Before: 4.5/10</span>
+                        <span class="after-value">After: 7.5/10</span>
+                    </div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Recovery Speed</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" style="width: 90%;"></div>
+                    </div>
+                    <div class="metric-values">
+                        <span class="before-value">Before: 3/10</span>
+                        <span class="after-value">After: 9/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="container">
+        <h2>Men Who Took Control of Their Biology</h2>
+        <p class="section-subtitle">
+            Real clients. Real blood work. Real transformations.
+        </p>
+
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="testimonial-metric">Testosterone: 389 → 542 ng/dL</div>
+                <div class="testimonial-text">
+                    "I was ready to accept that feeling exhausted was just part of being 42. 
+                    My blood work showed otherwise. Three months later, I'm outperforming 
+                    colleagues half my age. The data doesn't lie."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MS</div>
+                    <div class="author-info">
+                        <div class="author-name">Michael S.</div>
+                        <div class="author-title">Private Equity Partner, London</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-metric">Morning Cortisol: 28.3 → 16.4 μg/dL</div>
+                <div class="testimonial-text">
+                    "The 3pm crash disappeared completely. I'm closing deals at 5pm with the 
+                    same sharpness I have at 9am. My wife asked if I'm taking something. 
+                    I am - the right vitamins based on actual deficiencies."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JR</div>
+                    <div class="author-info">
+                        <div class="author-name">James R.</div>
+                        <div class="author-title">Tech CEO, Manchester</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-metric">Vitamin D: 12 → 48 ng/mL</div>
+                <div class="testimonial-text">
+                    "First winter in a decade without getting ill. Energy levels I haven't 
+                    felt since university. All from fixing deficiencies I didn't know I had. 
+                    Why isn't everyone testing their blood work?"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DW</div>
+                    <div class="author-info">
+                        <div class="author-name">David W.</div>
+                        <div class="author-title">Investment Director, Birmingham</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="container">
+        <h2>Your 90-Day Biological Reconstruction</h2>
+        <p class="section-subtitle">
+            A systematic, data-driven approach to reversing decline.
+        </p>
+
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Week 1: Complete Biomarker Baseline</div>
+                    <div class="step-description">
+                        40+ biomarker comprehensive blood panel. Hormones, inflammation, 
+                        vitamins, metabolic markers. We measure everything that matters. 
+                        You'll be shocked at what's actually happening inside your body.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Week 2-6: Precision Protocol Implementation</div>
+                    <div class="step-description">
+                        Based on YOUR specific deficiencies, not generic advice. 
+                        Daily accountability via WhatsApp. Weekly video reviews to adjust. 
+                        No extreme measures - just targeted interventions that work.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Week 7: Mid-Point Testing & Calibration</div>
+                    <div class="step-description">
+                        Second blood panel to verify improvements. Most men see 20-30% 
+                        improvements already. We adjust protocols based on response rates. 
+                        This isn't guesswork - it's precision health.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Week 12: Final Verification & Maintenance Plan</div>
+                    <div class="step-description">
+                        Complete blood panel proving your transformation. Average: 37% testosterone 
+                        increase, 40% inflammation reduction. You'll have the data and protocols 
+                        to maintain these improvements permanently.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="container">
+        <h2>The Investment in Your Biology</h2>
+
+        <div class="pricing-card">
+            <div class="price-tag">£2,497</div>
+            <div class="price-period">Complete 90-Day Transformation</div>
+            
+            <div class="included-list">
+                <div class="included-item">
+                    <span class="checkmark">✓</span>
+                    <span>3 Comprehensive Blood Panels (40+ biomarkers each)</span>
+                </div>
+                <div class="included-value">Clinical value: £945</div>
+                
+                <div class="included-item">
+                    <span class="checkmark">✓</span>
+                    <span>12 Weekly Personal Consultations</span>
+                </div>
+                <div class="included-value">Professional rate: £1,200</div>
+                
+                <div class="included-item">
+                    <span class="checkmark">✓</span>
+                    <span>Daily WhatsApp Accountability & Support</span>
+                </div>
+                <div class="included-value">Coaching value: £600</div>
+                
+                <div class="included-item">
+                    <span class="checkmark">✓</span>
+                    <span>Personalised Protocol Development</span>
+                </div>
+                <div class="included-value">Consultation value: £500</div>
+                
+                <div class="included-item">
+                    <span class="checkmark">✓</span>
+                    <span>Biomarker Improvement Guarantee</span>
+                </div>
+                <div class="included-value">Your protection: Priceless</div>
+            </div>
+
+            <p style="text-align: center; color: #a0a0a0; margin: 30px 0;">
+                Total value: £3,245+ | Your investment: £2,497
+            </p>
+
+            <a href="https://wa.me/447951430141?text=I'm%20interested%20in%20the%20Biolytics%2090-day%20programme" class="cta-button" style="width: 100%; text-align: center;">
+                Start My Transformation →
+            </a>
+
+            <p style="text-align: center; color: #707070; margin-top: 20px;">
+                Payment plans available. Limited to 12 men per month.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="deadline-warning">January Cohort: 4 Spaces Remaining</div>
+            
+            <h2 style="margin-bottom: 30px;">Every Month You Wait, You're Declining Further</h2>
+            
+            <p style="font-size: 1.2rem; color: #a0a0a0; max-width: 700px; margin: 0 auto 40px;">
+                Your testosterone drops 1-2% every year after 30. Your competitors aren't waiting. 
+                Neither should you.
+            </p>
+
+            <div class="cta-container" style="justify-content: center;">
+                <a href="https://wa.me/447951430141?text=I%20want%20to%20reverse%20my%20biological%20decline" class="cta-button">
+                    Claim My Spot →
+                </a>
+                <a href="bloodwork.html" class="secondary-cta cta-button">
+                    See Real Results First
+                </a>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Animate metrics on scroll
         const observerOptions = {
