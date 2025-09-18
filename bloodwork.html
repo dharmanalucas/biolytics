@@ -5,13 +5,935 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinical Results - 90-Day Biomarker Transformation - Biolytics</title>
     <style>
-        /* [Full CSS from your code above] */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #f0f0f0; background: #0f0f0f; overflow-x: hidden; }
-        /* ... [full CSS omitted here for brevity, but provided in commit] ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #f0f0f0;
+            background: #0f0f0f;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #707070;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .back-link:hover {
+            color: #dc2626;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .clinical-badge {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 12px 25px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #dc2626;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Context Section */
+        .context-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .context-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #dc2626;
+        }
+
+        .context-text {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(220, 38, 38, 0.3);
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.1);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+
+        .marker-info {
+            flex: 1;
+        }
+
+        .marker-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .marker-function {
+            font-size: 0.9rem;
+            color: #707070;
+            font-style: italic;
+        }
+
+        .improvement-badge {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .values-display {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .value-box {
+            text-align: center;
+            padding: 20px;
+            background: #0f0f0f;
+            border-radius: 12px;
+        }
+
+        .value-label {
+            font-size: 0.8rem;
+            color: #707070;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .value-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .value-unit {
+            font-size: 0.9rem;
+            color: #707070;
+        }
+
+        .value-before .value-number {
+            color: #a0a0a0;
+        }
+
+        .value-after .value-number {
+            color: #dc2626;
+        }
+
+        .arrow-container {
+            font-size: 2rem;
+            color: #dc2626;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .range-visual {
+            position: relative;
+            height: 12px;
+            background: #2a2a2a;
+            border-radius: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .range-normal {
+            position: absolute;
+            left: 30%;
+            right: 30%;
+            height: 100%;
+            background: rgba(34, 197, 94, 0.2);
+            border-left: 2px solid #22c55e;
+            border-right: 2px solid #22c55e;
+        }
+
+        .range-marker {
+            position: absolute;
+            top: -5px;
+            width: 4px;
+            height: 22px;
+            border-radius: 2px;
+            transition: left 2s ease;
+        }
+
+        .marker-before {
+            background: #707070;
+        }
+
+        .marker-after {
+            background: #dc2626;
+        }
+
+        .impact-section {
+            background: rgba(220, 38, 38, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .impact-title {
+            font-size: 0.9rem;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .impact-list {
+            list-style: none;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .check {
+            color: #dc2626;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Summary Stats */
+        .summary-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+            border-radius: 16px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .summary-stat {
+            text-align: center;
+        }
+
+        .summary-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #dc2626;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .summary-label {
+            color: #a0a0a0;
+            font-size: 1rem;
+        }
+
+        /* Protocol Section */
+        .protocol-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .protocol-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .protocol-item {
+            text-align: center;
+            padding: 25px;
+            background: #0f0f0f;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .protocol-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .protocol-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .protocol-description {
+            color: #707070;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.4);
+            background: #b91c1c;
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(107, 114, 128, 0.1);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #707070;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-display {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .arrow-container {
+                transform: rotate(90deg);
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .protocol-section {
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- [Full HTML content as provided above, including all sections and results] -->
+    <div class="header">
+        <a href="index.html" class="back-link">← Back to Homepage</a>
+        <div class="header-content">
+            <h1>Clinical Evidence: 90-Day Biomarker Transformation</h1>
+            <p class="header-subtitle">
+                Actual blood test results from a verified client. Not promises or averages - 
+                real data showing what's possible when you address the root causes.
+            </p>
+        </div>
+    </div>
+
+    <div class="clinical-badge">
+        ⚠️ Medical Disclosure: Individual Results - Consult Your Physician
+    </div>
+
+    <div class="container">
+        <div class="context-section">
+            <h2>The Executive Who Refused to Accept Decline</h2>
+            <p class="context-text">
+                <strong>Profile:</strong> 43-year-old private equity partner, Manchester. 
+                Working 70+ hour weeks. Previously tried everything separately - personal trainer, 
+                sleep apps, various supplements. Nothing worked until he saw his blood work.
+            </p>
+            <p class="context-text" style="margin-top: 20px;">
+                <span class="highlight">His testosterone was lower than an 80-year-old man.</span> 
+                His cortisol pattern was completely inverted. His vitamin D was clinically deficient. 
+                No wonder he felt exhausted.
+            </p>
+            <p class="context-text" style="margin-top: 20px; font-weight: 600;">
+                90 days later, these are his results:
+            </p>
+        </div>
+
+        <div class="results-grid">
+            <!-- Total Testosterone -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">Total Testosterone</div>
+                        <div class="marker-function">Drive, confidence, muscle, focus</div>
+                    </div>
+                    <div class="improvement-badge">+42%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">385</div>
+                        <div class="value-unit">ng/dL</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">546</div>
+                        <div class="value-unit">ng/dL</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 25%;"></div>
+                    <div class="range-marker marker-after" style="left: 48%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">What This Actually Meant:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Morning energy returned - no longer needing 3 alarms</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Mental sharpness at 5pm matches 9am performance</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Libido of a 30-year-old (wife noticed immediately)</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Gained 4kg lean muscle without changing workout routine</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Free Testosterone -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">Free Testosterone</div>
+                        <div class="marker-function">Bioavailable hormone for actual use</div>
+                    </div>
+                    <div class="improvement-badge">+38%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">8.7</div>
+                        <div class="value-unit">pg/mL</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">12.0</div>
+                        <div class="value-unit">pg/mL</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 28%;"></div>
+                    <div class="range-marker marker-after" style="left: 50%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">Real-World Impact:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Recovery time cut in half - training 5x/week now possible</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Decision-making speed noticeably improved</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>No more afternoon brain fog or coffee dependency</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Morning Cortisol -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">Morning Cortisol</div>
+                        <div class="marker-function">Stress response & energy regulation</div>
+                    </div>
+                    <div class="improvement-badge">-45%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">27.3</div>
+                        <div class="value-unit">μg/dL</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">15.0</div>
+                        <div class="value-unit">μg/dL</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 75%;"></div>
+                    <div class="range-marker marker-after" style="left: 45%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">Stress Response Transformation:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>No longer waking at 3am with racing thoughts</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Can handle work pressure without feeling overwhelmed</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Sunday night anxiety completely disappeared</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Blood pressure dropped 15 points without medication</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Vitamin D -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">Vitamin D</div>
+                        <div class="marker-function">Immune function, mood, testosterone production</div>
+                    </div>
+                    <div class="improvement-badge">+186%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">18</div>
+                        <div class="value-unit">ng/mL</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">51</div>
+                        <div class="value-unit">ng/mL</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 18%;"></div>
+                    <div class="range-marker marker-after" style="left: 51%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">Energy & Immunity Boost:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>First winter in 10 years without getting ill</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Seasonal depression completely lifted</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Consistent energy throughout the day</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Inflammation -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">hs-CRP (Inflammation)</div>
+                        <div class="marker-function">Systemic inflammation & recovery</div>
+                    </div>
+                    <div class="improvement-badge">-58%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">3.1</div>
+                        <div class="value-unit">mg/L</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">1.3</div>
+                        <div class="value-unit">mg/L</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 62%;"></div>
+                    <div class="range-marker marker-after" style="left: 35%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">Inflammation Reduction Benefits:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Joint pain in knees completely resolved</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Brain fog lifted - mental clarity restored</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Post-workout soreness reduced by 70%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SHBG -->
+            <div class="result-card">
+                <div class="result-header">
+                    <div class="marker-info">
+                        <div class="marker-name">SHBG</div>
+                        <div class="marker-function">Controls free testosterone availability</div>
+                    </div>
+                    <div class="improvement-badge">-22%</div>
+                </div>
+
+                <div class="values-display">
+                    <div class="value-box value-before">
+                        <div class="value-label">Before</div>
+                        <div class="value-number">54</div>
+                        <div class="value-unit">nmol/L</div>
+                    </div>
+                    <div class="arrow-container">→</div>
+                    <div class="value-box value-after">
+                        <div class="value-label">After 90 Days</div>
+                        <div class="value-number">42</div>
+                        <div class="value-unit">nmol/L</div>
+                    </div>
+                </div>
+
+                <div class="range-visual">
+                    <div class="range-normal"></div>
+                    <div class="range-marker marker-before" style="left: 65%;"></div>
+                    <div class="range-marker marker-after" style="left: 48%;"></div>
+                </div>
+
+                <div class="impact-section">
+                    <div class="impact-title">Hormone Optimization:</div>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>More free testosterone available for use by body</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Improved muscle definition without diet change</span>
+                        </li>
+                        <li class="impact-item">
+                            <span class="check">✓</span>
+                            <span>Better hormone utilisation efficiency</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h2 class="summary-title">The Complete Transformation</h2>
+            <div class="summary-grid">
+                <div class="summary-stat">
+                    <div class="summary-number">42%</div>
+                    <div class="summary-label">Testosterone Increase</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-number">58%</div>
+                    <div class="summary-label">Inflammation Reduction</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-number">186%</div>
+                    <div class="summary-label">Vitamin D Improvement</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-number">90</div>
+                    <div class="summary-label">Days to Transform</div>
+                </div>
+            </div>
+            <p style="font-size: 1.2rem; color: #a0a0a0; max-width: 700px; margin: 0 auto;">
+                <strong style="color: #fff;">The result?</strong> He feels better at 43 than he did at 33. 
+                Closing bigger deals. Training harder. Sleeping deeper. Living fully.
+            </p>
+        </div>
+
+        <div class="protocol-section">
+            <h2 class="protocol-title">The Exact Protocol That Created These Results</h2>
+            <p style="text-align: center; color: #a0a0a0; margin-bottom: 30px;">
+                No extreme measures. No TRT. Just targeted interventions based on his specific deficiencies.
+            </p>
+            
+            <div class="protocol-grid">
+                <div class="protocol-item">
+                    <div class="protocol-icon">🔬</div>
+                    <div class="protocol-name">Precision Testing</div>
+                    <div class="protocol-description">
+                        40+ biomarkers analysed every 30 days to track progress and adjust protocols
+                    </div>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-icon">💊</div>
+                    <div class="protocol-name">Targeted Supplementation</div>
+                    <div class="protocol-description">
+                        Only what his blood work showed he needed. No guesswork, no waste.
+                    </div>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-icon">😴</div>
+                    <div class="protocol-name">Sleep Optimisation</div>
+                    <div class="protocol-description">
+                        Specific protocols to restore deep sleep and natural hormone production
+                    </div>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-icon">🥗</div>
+                    <div class="protocol-name">Inflammation Control</div>
+                    <div class="protocol-description">
+                        Strategic nutrition adjustments to reduce systemic inflammation
+                    </div>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-icon">📱</div>
+                    <div class="protocol-name">Daily Accountability</div>
+                    <div class="protocol-description">
+                        WhatsApp check-ins ensuring protocol compliance and rapid adjustments
+                    </div>
+                </div>
+                <div class="protocol-item">
+                    <div class="protocol-icon">📊</div>
+                    <div class="protocol-name">Weekly Reviews</div>
+                    <div class="protocol-description">
+                        Video consultations to analyse progress and optimise approach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Your Biomarkers Tell a Story</h2>
+        <p class="cta-subtitle">
+            Most men never read it. They accept decline as inevitable. 
+            This client proved it's reversible.
+        </p>
+        <p class="cta-subtitle" style="font-weight: 600; color: #dc2626;">
+            What story will your blood work tell in 90 days?
+        </p>
+        
+        <a href="https://wa.me/447951430141?text=I've%20seen%20the%20results.%20I%20want%20to%20transform%20my%20biomarkers." class="cta-button">
+            Start My Transformation →
+        </a>
+        
+        <p style="margin-top: 30px; color: #707070;">
+            Limited to 12 men per month to ensure proper attention and results.
+        </p>
+        
+        <div class="disclaimer">
+            <strong>Medical Disclaimer:</strong> These are individual results from one client and should not be 
+            construed as typical or guaranteed. Results vary based on starting health, compliance with protocols, 
+            and individual biological factors. This is not medical advice. Consult your physician before beginning 
+            any health optimisation programme. The Biolytics protocol is designed to work alongside, not replace, 
+            conventional medical care.
+        </div>
+        
+        <p style="margin-top: 30px;">
+            <a href="index.html" style="color: #707070; text-decoration: none;">← Back to homepage</a>
+        </p>
+    </div>
+
+    <script>
+        // Animate range markers on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const afterMarkers = entry.target.querySelectorAll('.marker-after');
+                    afterMarkers.forEach(marker => {
+                        setTimeout(() => {
+                            marker.style.left = marker.style.left;
+                        }, 500);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.result-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
