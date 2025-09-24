@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biolytics - Data-Driven Male Health Optimisation</title>
+    <title>Biolytics - Executive Health Optimisation Through Data</title>
     <style>
         * {
             margin: 0;
@@ -15,14 +15,14 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #f0f0f0;
-            background: #0f0f0f;
+            background: #0a0a0a;
             overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Hero Section - Subtle urgency */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f1419 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -37,7 +37,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(30, 64, 175, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -87,32 +87,32 @@
         .cta-button {
             display: inline-block;
             padding: 18px 40px;
-            background: #dc2626;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: #fff;
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.4);
-            background: #b91c1c;
+            box-shadow: 0 6px 30px rgba(30, 64, 175, 0.4);
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
         }
 
         .secondary-cta {
             background: transparent;
-            border: 2px solid #404040;
+            border: 2px solid #1e3a5f;
             color: #fff;
             box-shadow: none;
         }
 
         .secondary-cta:hover {
-            border-color: #dc2626;
-            background: rgba(220, 38, 38, 0.1);
+            border-color: #2563eb;
+            background: rgba(30, 64, 175, 0.1);
         }
 
         /* Trust Indicators */
@@ -121,7 +121,7 @@
             gap: 40px;
             margin-top: 40px;
             padding-top: 40px;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid #1e293b;
             flex-wrap: wrap;
         }
 
@@ -129,12 +129,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #707070;
+            color: #94a3b8;
             font-size: 0.95rem;
         }
 
         .checkmark {
-            color: #dc2626;
+            color: #d4af37;
             font-weight: bold;
         }
 
@@ -165,8 +165,8 @@
 
         /* Problem Section */
         .warning-box {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
-            border-left: 4px solid #dc2626;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(30, 58, 95, 0.05) 100%);
+            border-left: 4px solid #1e40af;
             padding: 30px;
             border-radius: 8px;
             margin: 40px 0;
@@ -187,20 +187,21 @@
         }
 
         .symptom-card {
-            background: #1a1a1a;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
             padding: 25px;
             border-radius: 12px;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #1e293b;
             transition: all 0.3s ease;
         }
 
         .symptom-card:hover {
-            border-color: #dc2626;
+            border-color: #2563eb;
             transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
         }
 
         .symptom-time {
-            color: #dc2626;
+            color: #2563eb;
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -216,17 +217,18 @@
         }
 
         .symptom-description {
-            color: #a0a0a0;
+            color: #94a3b8;
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
         /* Data Section */
         .data-reveal {
-            background: #1a1a1a;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
             border-radius: 16px;
             padding: 50px;
             margin: 60px 0;
+            border: 1px solid #1e3a5f;
         }
 
         .biomarker-grid {
@@ -243,9 +245,20 @@
         .biomarker-value {
             font-size: 3.5rem;
             font-weight: 800;
-            color: #dc2626;
             line-height: 1;
             margin-bottom: 10px;
+        }
+
+        .biomarker-value.positive {
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .biomarker-value.negative {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .biomarker-name {
@@ -256,18 +269,18 @@
         }
 
         .biomarker-impact {
-            color: #707070;
+            color: #94a3b8;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
         /* Transformation Section */
         .transformation-visual {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
             border-radius: 16px;
             padding: 50px;
             margin: 60px 0;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #1e3a5f;
         }
 
         .metrics-comparison {
@@ -283,7 +296,7 @@
 
         .metric-label {
             font-size: 0.9rem;
-            color: #707070;
+            color: #94a3b8;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -291,7 +304,7 @@
 
         .metric-bar {
             height: 8px;
-            background: #2a2a2a;
+            background: #1e293b;
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -299,7 +312,7 @@
 
         .metric-fill {
             height: 100%;
-            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+            background: linear-gradient(90deg, #1e40af 0%, #2563eb 50%, #d4af37 100%);
             border-radius: 4px;
             transition: width 2s ease;
         }
@@ -311,11 +324,11 @@
         }
 
         .before-value {
-            color: #707070;
+            color: #64748b;
         }
 
         .after-value {
-            color: #dc2626;
+            color: #d4af37;
             font-weight: 700;
         }
 
@@ -328,10 +341,10 @@
         }
 
         .testimonial {
-            background: #1a1a1a;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
             padding: 35px;
             border-radius: 12px;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #1e293b;
         }
 
         .testimonial-text {
@@ -342,14 +355,15 @@
         }
 
         .testimonial-metric {
-            background: rgba(220, 38, 38, 0.1);
+            background: rgba(212, 175, 55, 0.1);
             padding: 10px 15px;
             border-radius: 6px;
             display: inline-block;
             margin-bottom: 20px;
-            color: #dc2626;
+            color: #d4af37;
             font-weight: 600;
             font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .testimonial-author {
@@ -357,19 +371,19 @@
             align-items: center;
             gap: 15px;
             padding-top: 20px;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid #1e293b;
         }
 
         .author-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: #2a2a2a;
+            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: #dc2626;
+            color: #fff;
             font-size: 1.2rem;
         }
 
@@ -384,8 +398,17 @@
         }
 
         .author-title {
-            color: #707070;
+            color: #94a3b8;
             font-size: 0.9rem;
+        }
+
+        /* Privacy Vault Section */
+        .privacy-vault {
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            border-radius: 16px;
+            padding: 40px;
+            border: 2px solid #1e3a5f;
+            margin: 60px 0;
         }
 
         /* Process Section */
@@ -404,7 +427,7 @@
         .step-number {
             width: 60px;
             height: 60px;
-            background: #dc2626;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -412,6 +435,7 @@
             font-weight: 700;
             font-size: 1.3rem;
             flex-shrink: 0;
+            color: #fff;
         }
 
         .step-content {
@@ -427,31 +451,55 @@
         }
 
         .step-description {
-            color: #a0a0a0;
+            color: #94a3b8;
             line-height: 1.6;
+        }
+
+        /* Qualification Section */
+        .qualification-section {
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px auto;
+            border: 1px solid #1e3a5f;
         }
 
         /* Pricing */
         .pricing-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            border: 2px solid #dc2626;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            border: 2px solid #d4af37;
             border-radius: 16px;
             padding: 50px;
             max-width: 600px;
             margin: 60px auto;
             text-align: center;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
         }
 
         .price-tag {
             font-size: 3.5rem;
             font-weight: 800;
-            color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: #64748b;
+            font-size: 1.5rem;
         }
 
         .price-period {
-            color: #707070;
+            color: #94a3b8;
             font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .price-savings {
+            color: #16a34a;
+            font-weight: 600;
             margin-bottom: 30px;
         }
 
@@ -469,22 +517,30 @@
         }
 
         .included-value {
-            color: #707070;
+            color: #64748b;
             font-size: 0.9rem;
             margin-left: 30px;
         }
 
+        /* Brotherhood Protocol */
+        .brotherhood-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
         /* Footer CTA */
         .final-cta {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #0a0a0a 100%);
             padding: 80px 20px;
             text-align: center;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid #1e293b;
         }
 
         .deadline-warning {
-            background: #dc2626;
-            color: #fff;
+            background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+            color: #0a0a0a;
             padding: 15px 30px;
             border-radius: 50px;
             display: inline-block;
@@ -513,6 +569,18 @@
 
             .pricing-card {
                 padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .price-tag {
+                font-size: 2.5rem;
+            }
+
+            .symptom-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -628,22 +696,22 @@
         <div class="data-reveal">
             <div class="biomarker-grid">
                 <div class="biomarker">
-                    <div class="biomarker-value">+37%</div>
+                    <div class="biomarker-value positive">+37%</div>
                     <div class="biomarker-name">Total Testosterone</div>
                     <div class="biomarker-impact">More drive, better decisions, natural confidence</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value">-42%</div>
+                    <div class="biomarker-value negative">-42%</div>
                     <div class="biomarker-name">Inflammation (hs-CRP)</div>
                     <div class="biomarker-impact">Faster recovery, clearer thinking, better mood</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value">+156%</div>
+                    <div class="biomarker-value positive">+156%</div>
                     <div class="biomarker-name">Vitamin D</div>
                     <div class="biomarker-impact">Stronger immunity, improved energy, better sleep</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value">-38%</div>
+                    <div class="biomarker-value negative">-38%</div>
                     <div class="biomarker-name">Cortisol</div>
                     <div class="biomarker-impact">Less stress, no afternoon crash, deeper sleep</div>
                 </div>
@@ -651,7 +719,7 @@
         </div>
 
         <div class="transformation-visual">
-            <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px;">What 90 Days Actually Looks Like</h3>
+            <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px; color: #fff;">What 90 Days Actually Looks Like</h3>
             <div class="metrics-comparison">
                 <div class="metric-item">
                     <div class="metric-label">Energy Levels</div>
@@ -715,7 +783,7 @@
                 <div class="testimonial-author">
                     <div class="author-avatar">MS</div>
                     <div class="author-info">
-                        <div class="author-name">Michael S.</div>
+                        <div class="author-name">Michael S., 42</div>
                         <div class="author-title">Private Equity Partner, London</div>
                     </div>
                 </div>
@@ -730,7 +798,7 @@
                 <div class="testimonial-author">
                     <div class="author-avatar">JR</div>
                     <div class="author-info">
-                        <div class="author-name">James R.</div>
+                        <div class="author-name">James R., 38</div>
                         <div class="author-title">Tech CEO, Manchester</div>
                     </div>
                 </div>
@@ -745,9 +813,41 @@
                 <div class="testimonial-author">
                     <div class="author-avatar">DW</div>
                     <div class="author-info">
-                        <div class="author-name">David W.</div>
+                        <div class="author-name">David W., 44</div>
                         <div class="author-title">Investment Director, Birmingham</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Vault Section -->
+    <section class="container">
+        <div class="privacy-vault">
+            <h3 style="color: #d4af37; margin-bottom: 20px; text-align: center;">The Vault: What Stays Private</h3>
+            <p style="color: #94a3b8; margin-bottom: 30px; text-align: center;">
+                Some improvements we track publicly. Others stay strictly between us.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 15px;">Public Metrics (Share if you want):</h4>
+                    <ul style="color: #e0e0e0; line-height: 1.8; list-style: none;">
+                        <li>✓ Energy scores</li>
+                        <li>✓ Sleep quality</li>
+                        <li>✓ Workout PRs</li>
+                        <li>✓ Body composition</li>
+                        <li>✓ Mental clarity ratings</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 15px;">Private Vault (Only you and I see):</h4>
+                    <ul style="color: #94a3b8; line-height: 1.8; list-style: none;">
+                        <li>🔒 Sexual health metrics</li>
+                        <li>🔒 Morning vitality indicators</li>
+                        <li>🔒 Relationship impacts</li>
+                        <li>🔒 Mood fluctuations</li>
+                        <li>🔒 Any metric you mark private</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -808,13 +908,61 @@
         </div>
     </section>
 
+    <!-- Qualification Section -->
+    <section class="container">
+        <div class="qualification-section">
+            <h3 style="color: #d4af37; text-align: center; margin-bottom: 30px;">This Is NOT For Everyone</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h4 style="color: #22c55e; margin-bottom: 20px;">✓ This IS for you if:</h4>
+                    <ul style="color: #94a3b8; line-height: 1.8; list-style: none;">
+                        <li>• You earn £75K+ and value ROI on health</li>
+                        <li>• You'll submit blood work on schedule</li>
+                        <li>• You want root causes fixed, not symptoms masked</li>
+                        <li>• You can commit 30 minutes daily to protocols</li>
+                        <li>• You're ready to see what peak performance feels like</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 20px;">✗ This is NOT for you if:</h4>
+                    <ul style="color: #64748b; line-height: 1.8; list-style: none;">
+                        <li>• You want TRT or pharmaceutical shortcuts</li>
+                        <li>• You can't invest 90 days in transformation</li>
+                        <li>• You're looking for magic pills</li>
+                        <li>• You think £2,497 is expensive for biological age reversal</li>
+                        <li>• You're comfortable with slow decline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brotherhood Protocol -->
+    <section class="brotherhood-section">
+        <div class="container" style="text-align: center;">
+            <h3 style="color: #d4af37; margin-bottom: 20px;">The Brotherhood Protocol</h3>
+            <p style="color: #e0e0e0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
+                After 30 days, when your results are undeniable, you can unlock ONE spot for someone you trust. 
+                Both of you receive an additional blood panel (£315 value) to track competitive progress.
+            </p>
+            <p style="color: #94a3b8;">
+                Iron sharpens iron. Transformation accelerates with accountability.
+            </p>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="container">
-        <h2>The Investment in Your Biology</h2>
+        <h2 style="text-align: center;">The Investment in Your Biology</h2>
 
         <div class="pricing-card">
-            <div class="price-tag">£2,497</div>
+            <div class="price-original">£2,497</div>
+            <div class="price-tag">£1,997</div>
+            <div class="price-savings">Founding Member Price - Save £500</div>
             <div class="price-period">Complete 90-Day Transformation</div>
+            <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                Valid for first 12 members only
+            </p>
             
             <div class="included-list">
                 <div class="included-item">
@@ -848,15 +996,15 @@
                 <div class="included-value">Your protection: Priceless</div>
             </div>
 
-            <p style="text-align: center; color: #a0a0a0; margin: 30px 0;">
-                Total value: £3,245+ | Your investment: £2,497
+            <p style="text-align: center; color: #94a3b8; margin: 30px 0;">
+                Total value: £3,245+ | Your investment: £1,997
             </p>
 
-            <a href="https://wa.me/447951430141?text=I'm%20interested%20in%20the%20Biolytics%2090-day%20programme" class="cta-button" style="width: 100%; text-align: center;">
+            <a href="https://wa.me/447951430141?text=I've%20seen%20my%20symptoms%20on%20your%20site.%20My%20main%20concern%20is%20[EDIT%20THIS].%20Can%20we%20discuss%20the%2090-day%20programme?" class="cta-button" style="width: 100%; text-align: center;">
                 Start My Transformation →
             </a>
 
-            <p style="text-align: center; color: #707070; margin-top: 20px;">
+            <p style="text-align: center; color: #64748b; margin-top: 20px;">
                 Payment plans available. Limited to 12 men per month.
             </p>
         </div>
@@ -865,17 +1013,17 @@
     <!-- Final CTA -->
     <section class="final-cta">
         <div class="container">
-            <div class="deadline-warning">January Cohort: 4 Spaces Remaining</div>
+            <div class="deadline-warning">Q1 2025 Cohort: Limited to 12 Men Total</div>
             
-            <h2 style="margin-bottom: 30px;">Every Month You Wait, You're Declining Further</h2>
+            <h2 style="margin-bottom: 30px; color: #fff;">Every Month You Wait, You're Declining Further</h2>
             
-            <p style="font-size: 1.2rem; color: #a0a0a0; max-width: 700px; margin: 0 auto 40px;">
+            <p style="font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 40px;">
                 Your testosterone drops 1-2% every year after 30. Your competitors aren't waiting. 
                 Neither should you.
             </p>
 
             <div class="cta-container" style="justify-content: center;">
-                <a href="https://wa.me/447951430141?text=I%20want%20to%20reverse%20my%20biological%20decline" class="cta-button">
+                <a href="https://wa.me/447951430141?text=I%20want%20to%20reverse%20my%20biological%20decline.%20Let's%20discuss%20the%20programme." class="cta-button">
                     Claim My Spot →
                 </a>
                 <a href="bloodwork.html" class="secondary-cta cta-button">
@@ -884,6 +1032,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Medical Disclaimer -->
+    <div style="background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%); padding: 30px; text-align: center; margin-top: 60px; border-top: 1px solid #1e293b;">
+        <p style="color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            <strong style="color: #d4af37;">Medical Transparency:</strong> Biolytics is not a medical treatment. We optimise what blood tests reveal through lifestyle, nutrition, and evidence-based supplementation. 
+            No TRT, no prescriptions, no shortcuts. Just data-driven protocols that work with your biology. 
+            Always consult your physician before beginning any health programme. 
+            Results vary but improvements are guaranteed or your money back.
+        </p>
+    </div>
 
     <script>
         // Animate metrics on scroll
