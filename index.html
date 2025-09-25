@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your testosterone is 37% lower than it should be. Reverse 5 years of biological decline in 90 days through precision biomarker optimization.">
     <title>Biolytics - Executive Health Optimisation Through Data</title>
     <style>
         * {
@@ -19,10 +20,10 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section - Subtle urgency */
+        /* Hero Section - Deep blood red urgency */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(180deg, #0a0a0a 0%, #0f1419 100%);
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0a0a 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -37,7 +38,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(30, 64, 175, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -49,15 +50,16 @@
 
         .pre-headline {
             font-size: 0.9rem;
-            color: #dc2626;
+            color: #8B0000;
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 20px;
             font-weight: 600;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-size: clamp(2rem, 6vw, 3.8rem);
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 30px;
@@ -65,16 +67,17 @@
         }
 
         .hero-subtext {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: #a0a0a0;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: #999;
             margin-bottom: 20px;
             line-height: 1.7;
             max-width: 700px;
         }
 
         .data-point {
-            color: #dc2626;
+            color: #8B0000;
             font-weight: 700;
+            text-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
         }
 
         .cta-container {
@@ -87,41 +90,41 @@
         .cta-button {
             display: inline-block;
             padding: 18px 40px;
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #CC5500 100%);
             color: #fff;
             text-decoration: none;
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.3);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(30, 64, 175, 0.4);
-            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+            box-shadow: 0 6px 30px rgba(204, 85, 0, 0.4);
+            background: linear-gradient(135deg, #660000 0%, #8B0000 100%);
         }
 
         .secondary-cta {
             background: transparent;
-            border: 2px solid #1e3a5f;
+            border: 2px solid rgba(139, 0, 0, 0.5);
             color: #fff;
             box-shadow: none;
         }
 
         .secondary-cta:hover {
-            border-color: #2563eb;
-            background: rgba(30, 64, 175, 0.1);
+            border-color: #CC5500;
+            background: rgba(139, 0, 0, 0.1);
         }
 
         /* Trust Indicators */
         .trust-bar {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             margin-top: 40px;
             padding-top: 40px;
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid rgba(139, 0, 0, 0.2);
             flex-wrap: wrap;
         }
 
@@ -129,18 +132,18 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #94a3b8;
+            color: #999;
             font-size: 0.95rem;
         }
 
         .checkmark {
-            color: #d4af37;
+            color: #CC5500;
             font-weight: bold;
         }
 
         /* Section Styles */
         section {
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .container {
@@ -149,7 +152,7 @@
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             margin-bottom: 20px;
             font-weight: 700;
             line-height: 1.2;
@@ -157,51 +160,51 @@
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            margin-bottom: 50px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #999;
+            margin-bottom: 40px;
             max-width: 700px;
         }
 
-        /* Problem Section */
+        /* Problem Section - Transition to burnt orange */
         .warning-box {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(30, 58, 95, 0.05) 100%);
-            border-left: 4px solid #1e40af;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.1) 0%, rgba(139, 0, 0, 0.05) 100%);
+            border-left: 4px solid #CC5500;
+            padding: 25px;
             border-radius: 8px;
             margin: 40px 0;
         }
 
         .warning-title {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #fff;
         }
 
         .symptom-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
             margin-top: 40px;
         }
 
         .symptom-card {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            background: linear-gradient(135deg, #1a0f0a 0%, #1a1a1a 100%);
             padding: 25px;
             border-radius: 12px;
-            border: 1px solid #1e293b;
+            border: 1px solid rgba(204, 85, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .symptom-card:hover {
-            border-color: #2563eb;
+            border-color: #CC5500;
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 4px 20px rgba(204, 85, 0, 0.2);
         }
 
         .symptom-time {
-            color: #2563eb;
+            color: #CC5500;
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -217,24 +220,24 @@
         }
 
         .symptom-description {
-            color: #94a3b8;
+            color: #999;
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
-        /* Data Section */
+        /* Data Section - Moving toward gold */
         .data-reveal {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
             border-radius: 16px;
-            padding: 50px;
+            padding: 40px 20px;
             margin: 60px 0;
-            border: 1px solid #1e3a5f;
+            border: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .biomarker-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
@@ -243,20 +246,11 @@
         }
 
         .biomarker-value {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 800;
             line-height: 1;
             margin-bottom: 10px;
-        }
-
-        .biomarker-value.positive {
-            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .biomarker-value.negative {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -269,24 +263,24 @@
         }
 
         .biomarker-impact {
-            color: #94a3b8;
+            color: #999;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
-        /* Transformation Section */
+        /* Transformation Visual */
         .transformation-visual {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
             border-radius: 16px;
-            padding: 50px;
+            padding: 40px 20px;
             margin: 60px 0;
-            border: 1px solid #1e3a5f;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .metrics-comparison {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 40px;
         }
 
@@ -296,7 +290,7 @@
 
         .metric-label {
             font-size: 0.9rem;
-            color: #94a3b8;
+            color: #999;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -304,7 +298,7 @@
 
         .metric-bar {
             height: 8px;
-            background: #1e293b;
+            background: #2a2a2a;
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -312,7 +306,7 @@
 
         .metric-fill {
             height: 100%;
-            background: linear-gradient(90deg, #1e40af 0%, #2563eb 50%, #d4af37 100%);
+            background: linear-gradient(90deg, #CC5500 0%, #FF8C00 50%, #FFD700 100%);
             border-radius: 4px;
             transition: width 2s ease;
         }
@@ -320,50 +314,50 @@
         .metric-values {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .before-value {
-            color: #64748b;
+            color: #666;
         }
 
         .after-value {
-            color: #d4af37;
+            color: #FFD700;
             font-weight: 700;
         }
 
         /* Social Proof */
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-top: 50px;
         }
 
         .testimonial {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            padding: 35px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
+            padding: 30px;
             border-radius: 12px;
-            border: 1px solid #1e293b;
+            border: 1px solid rgba(255, 215, 0, 0.15);
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.7;
             color: #e0e0e0;
             margin-bottom: 25px;
         }
 
         .testimonial-metric {
-            background: rgba(212, 175, 55, 0.1);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 140, 0, 0.05) 100%);
             padding: 10px 15px;
             border-radius: 6px;
             display: inline-block;
             margin-bottom: 20px;
-            color: #d4af37;
+            color: #FFD700;
             font-weight: 600;
             font-size: 0.9rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .testimonial-author {
@@ -371,20 +365,20 @@
             align-items: center;
             gap: 15px;
             padding-top: 20px;
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: #fff;
-            font-size: 1.2rem;
+            color: #0a0a0a;
+            font-size: 1.1rem;
         }
 
         .author-info {
@@ -398,16 +392,16 @@
         }
 
         .author-title {
-            color: #94a3b8;
-            font-size: 0.9rem;
+            color: #999;
+            font-size: 0.85rem;
         }
 
-        /* Privacy Vault Section */
+        /* Privacy Vault */
         .privacy-vault {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
             border-radius: 16px;
-            padding: 40px;
-            border: 2px solid #1e3a5f;
+            padding: 35px 20px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
             margin: 60px 0;
         }
 
@@ -419,86 +413,87 @@
 
         .process-step {
             display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-bottom: 35px;
             position: relative;
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
-            color: #fff;
+            color: #0a0a0a;
         }
 
         .step-content {
             flex: 1;
-            padding-top: 10px;
+            padding-top: 5px;
         }
 
         .step-title {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: 600;
             margin-bottom: 10px;
             color: #fff;
         }
 
         .step-description {
-            color: #94a3b8;
+            color: #999;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Qualification Section */
         .qualification-section {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            padding: 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
+            padding: 35px 20px;
             border-radius: 16px;
             margin: 40px auto;
-            border: 1px solid #1e3a5f;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
-        /* Pricing */
+        /* Pricing - Full gold achievement */
         .pricing-card {
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
-            border: 2px solid #d4af37;
+            background: linear-gradient(135deg, #2a1a0a 0%, #3a2a0a 100%);
+            border: 2px solid #FFD700;
             border-radius: 16px;
-            padding: 50px;
+            padding: 40px 25px;
             max-width: 600px;
             margin: 60px auto;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
         }
 
         .price-tag {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 7vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .price-original {
             text-decoration: line-through;
-            color: #64748b;
+            color: #666;
             font-size: 1.5rem;
         }
 
         .price-period {
-            color: #94a3b8;
+            color: #999;
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
 
         .price-savings {
-            color: #16a34a;
+            color: #FFD700;
             font-weight: 600;
             margin-bottom: 30px;
         }
@@ -517,38 +512,67 @@
         }
 
         .included-value {
-            color: #64748b;
-            font-size: 0.9rem;
+            color: #666;
+            font-size: 0.85rem;
             margin-left: 30px;
         }
 
         /* Brotherhood Protocol */
         .brotherhood-section {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
-            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            padding: 50px 20px;
             text-align: center;
             margin: 60px 0;
         }
 
-        /* Footer CTA */
+        /* Final CTA - Gold success */
         .final-cta {
-            background: linear-gradient(135deg, #0f1419 0%, #0a0a0a 100%);
-            padding: 80px 20px;
+            background: linear-gradient(135deg, #2a1a0a 0%, #0a0a0a 100%);
+            padding: 60px 20px;
             text-align: center;
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .deadline-warning {
-            background: linear-gradient(135deg, #d4af37 0%, #fbbf24 100%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a0a0a;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             display: inline-block;
             font-weight: 600;
             margin-bottom: 30px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
+        .final-cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a0a0a;
+            padding: 18px 40px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
+            section {
+                padding: 40px 15px;
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
             .cta-container {
                 flex-direction: column;
             }
@@ -556,31 +580,115 @@
             .cta-button {
                 width: 100%;
                 text-align: center;
+                padding: 16px 30px;
+                font-size: 1rem;
             }
 
             .trust-bar {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             .data-reveal {
-                padding: 30px 20px;
+                padding: 30px 15px;
             }
 
             .pricing-card {
                 padding: 30px 20px;
             }
 
+            .symptom-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .symptom-card {
+                padding: 20px;
+            }
+
+            .biomarker-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial {
+                padding: 25px 20px;
+            }
+
+            .process-step {
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .qualification-section div {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .privacy-vault div {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .metrics-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            /* Touch-friendly buttons */
+            .cta-button, .final-cta-button {
+                min-height: 48px;
+            }
+
+            /* Better readability on mobile */
+            body {
+                font-size: 16px;
+            }
+
+            .hero-subtext {
+                line-height: 1.6;
+            }
+
+            .warning-box {
+                padding: 20px 15px;
+            }
+
+            /* Stack price elements better */
+            .price-original {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Very small mobile screens */
+        @media (max-width: 380px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .data-reveal {
+                padding: 25px 12px;
+            }
+
+            .biomarker-value {
+                font-size: 2.2rem;
             }
 
             .price-tag {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
-            .symptom-grid {
-                grid-template-columns: 1fr;
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -696,22 +804,22 @@
         <div class="data-reveal">
             <div class="biomarker-grid">
                 <div class="biomarker">
-                    <div class="biomarker-value positive">+37%</div>
+                    <div class="biomarker-value">+37%</div>
                     <div class="biomarker-name">Total Testosterone</div>
                     <div class="biomarker-impact">More drive, better decisions, natural confidence</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value negative">-42%</div>
+                    <div class="biomarker-value">-42%</div>
                     <div class="biomarker-name">Inflammation (hs-CRP)</div>
                     <div class="biomarker-impact">Faster recovery, clearer thinking, better mood</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value positive">+156%</div>
+                    <div class="biomarker-value">+156%</div>
                     <div class="biomarker-name">Vitamin D</div>
                     <div class="biomarker-impact">Stronger immunity, improved energy, better sleep</div>
                 </div>
                 <div class="biomarker">
-                    <div class="biomarker-value negative">-38%</div>
+                    <div class="biomarker-value">-38%</div>
                     <div class="biomarker-name">Cortisol</div>
                     <div class="biomarker-impact">Less stress, no afternoon crash, deeper sleep</div>
                 </div>
@@ -719,7 +827,7 @@
         </div>
 
         <div class="transformation-visual">
-            <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px; color: #fff;">What 90 Days Actually Looks Like</h3>
+            <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 30px; color: #FFD700;">What 90 Days Actually Looks Like</h3>
             <div class="metrics-comparison">
                 <div class="metric-item">
                     <div class="metric-label">Energy Levels</div>
@@ -824,8 +932,8 @@
     <!-- Privacy Vault Section -->
     <section class="container">
         <div class="privacy-vault">
-            <h3 style="color: #d4af37; margin-bottom: 20px; text-align: center;">The Vault: What Stays Private</h3>
-            <p style="color: #94a3b8; margin-bottom: 30px; text-align: center;">
+            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">The Vault: What Stays Private</h3>
+            <p style="color: #999; margin-bottom: 30px; text-align: center;">
                 Some improvements we track publicly. Others stay strictly between us.
             </p>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
@@ -841,7 +949,7 @@
                 </div>
                 <div>
                     <h4 style="color: #fff; margin-bottom: 15px;">Private Vault (Only you and I see):</h4>
-                    <ul style="color: #94a3b8; line-height: 1.8; list-style: none;">
+                    <ul style="color: #999; line-height: 1.8; list-style: none;">
                         <li>🔒 Sexual health metrics</li>
                         <li>🔒 Morning vitality indicators</li>
                         <li>🔒 Relationship impacts</li>
@@ -911,11 +1019,11 @@
     <!-- Qualification Section -->
     <section class="container">
         <div class="qualification-section">
-            <h3 style="color: #d4af37; text-align: center; margin-bottom: 30px;">This Is NOT For Everyone</h3>
+            <h3 style="color: #FFD700; text-align: center; margin-bottom: 30px;">This Is NOT For Everyone</h3>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
                 <div>
-                    <h4 style="color: #22c55e; margin-bottom: 20px;">✓ This IS for you if:</h4>
-                    <ul style="color: #94a3b8; line-height: 1.8; list-style: none;">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">✓ This IS for you if:</h4>
+                    <ul style="color: #999; line-height: 1.8; list-style: none;">
                         <li>• You earn £75K+ and value ROI on health</li>
                         <li>• You'll submit blood work on schedule</li>
                         <li>• You want root causes fixed, not symptoms masked</li>
@@ -924,8 +1032,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 style="color: #dc2626; margin-bottom: 20px;">✗ This is NOT for you if:</h4>
-                    <ul style="color: #64748b; line-height: 1.8; list-style: none;">
+                    <h4 style="color: #CC5500; margin-bottom: 20px;">✗ This is NOT for you if:</h4>
+                    <ul style="color: #666; line-height: 1.8; list-style: none;">
                         <li>• You want TRT or pharmaceutical shortcuts</li>
                         <li>• You can't invest 90 days in transformation</li>
                         <li>• You're looking for magic pills</li>
@@ -940,12 +1048,12 @@
     <!-- Brotherhood Protocol -->
     <section class="brotherhood-section">
         <div class="container" style="text-align: center;">
-            <h3 style="color: #d4af37; margin-bottom: 20px;">The Brotherhood Protocol</h3>
+            <h3 style="color: #FFD700; margin-bottom: 20px;">The Brotherhood Protocol</h3>
             <p style="color: #e0e0e0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">
                 After 30 days, when your results are undeniable, you can unlock ONE spot for someone you trust. 
                 Both of you receive an additional blood panel (£315 value) to track competitive progress.
             </p>
-            <p style="color: #94a3b8;">
+            <p style="color: #999;">
                 Iron sharpens iron. Transformation accelerates with accountability.
             </p>
         </div>
@@ -960,7 +1068,7 @@
             <div class="price-tag">£1,997</div>
             <div class="price-savings">Founding Member Price - Save £500</div>
             <div class="price-period">Complete 90-Day Transformation</div>
-            <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">
                 Valid for first 12 members only
             </p>
             
@@ -996,15 +1104,15 @@
                 <div class="included-value">Your protection: Priceless</div>
             </div>
 
-            <p style="text-align: center; color: #94a3b8; margin: 30px 0;">
+            <p style="text-align: center; color: #999; margin: 30px 0;">
                 Total value: £3,245+ | Your investment: £1,997
             </p>
 
-            <a href="https://wa.me/447951430141?text=I've%20seen%20my%20symptoms%20on%20your%20site.%20My%20main%20concern%20is%20[EDIT%20THIS].%20Can%20we%20discuss%20the%2090-day%20programme?" class="cta-button" style="width: 100%; text-align: center;">
+            <a href="https://wa.me/447951430141?text=I've%20seen%20my%20symptoms%20on%20your%20site.%20My%20main%20concern%20is%20[EDIT%20THIS].%20Can%20we%20discuss%20the%2090-day%20programme?" class="final-cta-button" style="width: 100%; max-width: 400px;">
                 Start My Transformation →
             </a>
 
-            <p style="text-align: center; color: #64748b; margin-top: 20px;">
+            <p style="text-align: center; color: #666; margin-top: 20px;">
                 Payment plans available. Limited to 12 men per month.
             </p>
         </div>
@@ -1017,13 +1125,13 @@
             
             <h2 style="margin-bottom: 30px; color: #fff;">Every Month You Wait, You're Declining Further</h2>
             
-            <p style="font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto 40px;">
+            <p style="font-size: 1.1rem; color: #999; max-width: 700px; margin: 0 auto 40px;">
                 Your testosterone drops 1-2% every year after 30. Your competitors aren't waiting. 
                 Neither should you.
             </p>
 
             <div class="cta-container" style="justify-content: center;">
-                <a href="https://wa.me/447951430141?text=I%20want%20to%20reverse%20my%20biological%20decline.%20Let's%20discuss%20the%20programme." class="cta-button">
+                <a href="https://wa.me/447951430141?text=I%20want%20to%20reverse%20my%20biological%20decline.%20Let's%20discuss%20the%20programme." class="final-cta-button">
                     Claim My Spot →
                 </a>
                 <a href="bloodwork.html" class="secondary-cta cta-button">
@@ -1034,9 +1142,9 @@
     </section>
 
     <!-- Medical Disclaimer -->
-    <div style="background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%); padding: 30px; text-align: center; margin-top: 60px; border-top: 1px solid #1e293b;">
-        <p style="color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-            <strong style="color: #d4af37;">Medical Transparency:</strong> Biolytics is not a medical treatment. We optimise what blood tests reveal through lifestyle, nutrition, and evidence-based supplementation. 
+    <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%); padding: 30px 20px; text-align: center; margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.1);">
+        <p style="color: #999; max-width: 800px; margin: 0 auto; line-height: 1.6; font-size: 0.9rem;">
+            <strong style="color: #FFD700;">Medical Transparency:</strong> Biolytics is not a medical treatment. We optimise what blood tests reveal through lifestyle, nutrition, and evidence-based supplementation. 
             No TRT, no prescriptions, no shortcuts. Just data-driven protocols that work with your biology. 
             Always consult your physician before beginning any health programme. 
             Results vary but improvements are guaranteed or your money back.
