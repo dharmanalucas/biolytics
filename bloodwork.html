@@ -154,7 +154,7 @@
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .marker-info {
@@ -188,7 +188,7 @@
             grid-template-columns: 1fr auto 1fr;
             gap: 15px;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .value-box {
@@ -237,42 +237,6 @@
         @keyframes pulse {
             0%, 100% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .range-visual {
-            position: relative;
-            height: 12px;
-            background: #2a2a2a;
-            border-radius: 6px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .range-normal {
-            position: absolute;
-            left: 30%;
-            right: 30%;
-            height: 100%;
-            background: rgba(255, 215, 0, 0.2);
-            border-left: 2px solid #FFD700;
-            border-right: 2px solid #FFD700;
-        }
-
-        .range-marker {
-            position: absolute;
-            top: -5px;
-            width: 4px;
-            height: 22px;
-            border-radius: 2px;
-            transition: left 2s ease;
-        }
-
-        .marker-before {
-            background: #666;
-        }
-
-        .marker-after {
-            background: #FFD700;
         }
 
         .impact-section {
@@ -656,12 +620,6 @@
                     </div>
                 </div>
 
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 25%;"></div>
-                    <div class="range-marker marker-after" style="left: 48%;"></div>
-                </div>
-
                 <div class="impact-section">
                     <div class="impact-title">What This Actually Meant:</div>
                     <ul class="impact-list">
@@ -709,12 +667,6 @@
                     </div>
                 </div>
 
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 28%;"></div>
-                    <div class="range-marker marker-after" style="left: 50%;"></div>
-                </div>
-
                 <div class="impact-section">
                     <div class="impact-title">Real-World Impact:</div>
                     <ul class="impact-list">
@@ -756,12 +708,6 @@
                         <div class="value-number">15.0</div>
                         <div class="value-unit">μg/dL</div>
                     </div>
-                </div>
-
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 75%;"></div>
-                    <div class="range-marker marker-after" style="left: 45%;"></div>
                 </div>
 
                 <div class="impact-section">
@@ -811,12 +757,6 @@
                     </div>
                 </div>
 
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 18%;"></div>
-                    <div class="range-marker marker-after" style="left: 51%;"></div>
-                </div>
-
                 <div class="impact-section">
                     <div class="impact-title">Energy & Immunity Boost:</div>
                     <ul class="impact-list">
@@ -860,12 +800,6 @@
                     </div>
                 </div>
 
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 62%;"></div>
-                    <div class="range-marker marker-after" style="left: 35%;"></div>
-                </div>
-
                 <div class="impact-section">
                     <div class="impact-title">Inflammation Reduction Benefits:</div>
                     <ul class="impact-list">
@@ -907,12 +841,6 @@
                         <div class="value-number">42</div>
                         <div class="value-unit">nmol/L</div>
                     </div>
-                </div>
-
-                <div class="range-visual">
-                    <div class="range-normal"></div>
-                    <div class="range-marker marker-before" style="left: 65%;"></div>
-                    <div class="range-marker marker-after" style="left: 48%;"></div>
                 </div>
 
                 <div class="impact-section">
@@ -1046,7 +974,7 @@
     </div>
 
     <script>
-        // Animate range markers on scroll
+        // Basic scroll animations
         const observerOptions = {
             threshold: 0.3,
             rootMargin: '0px'
@@ -1055,12 +983,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const afterMarkers = entry.target.querySelectorAll('.marker-after');
-                    afterMarkers.forEach(marker => {
-                        setTimeout(() => {
-                            marker.style.left = marker.style.left;
-                        }, 500);
-                    });
+                    // Trigger any animations here
                 }
             });
         }, observerOptions);
