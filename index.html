@@ -225,6 +225,51 @@
             font-size: 0.95rem;
         }
 
+        /* Process Section */
+        .process-timeline {
+            position: relative;
+            margin: 60px 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            color: #0a0a0a;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 5px;
+        }
+
+        .step-title {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .step-description {
+            color: #999;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
         /* Data Section - Moving toward gold */
         .data-reveal {
             background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
@@ -296,34 +341,39 @@
             letter-spacing: 1px;
         }
 
+        .comparison-bars {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .before-bar, .after-bar {
+            flex: 1;
+        }
+
         .metric-bar {
             height: 8px;
             background: #2a2a2a;
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
-        .metric-fill {
+        .metric-fill-before {
             height: 100%;
-            background: linear-gradient(90deg, #CC5500 0%, #FF8C00 50%, #FFD700 100%);
+            background: #666;
             border-radius: 4px;
-            transition: width 2s ease;
         }
 
-        .metric-values {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
+        .metric-fill-after {
+            height: 100%;
+            background: linear-gradient(90deg, #CC5500 0%, #FFD700 100%);
+            border-radius: 4px;
         }
 
-        .before-value {
-            color: #666;
-        }
-
-        .after-value {
-            color: #FFD700;
-            font-weight: 700;
+        .metric-value {
+            font-size: 0.8rem;
         }
 
         /* Social Proof */
@@ -396,60 +446,6 @@
             font-size: 0.85rem;
         }
 
-        /* Privacy Vault */
-        .privacy-vault {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
-            border-radius: 16px;
-            padding: 35px 20px;
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            margin: 60px 0;
-        }
-
-        /* Process Section */
-        .process-timeline {
-            position: relative;
-            margin: 60px 0;
-        }
-
-        .process-step {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            color: #0a0a0a;
-        }
-
-        .step-content {
-            flex: 1;
-            padding-top: 5px;
-        }
-
-        .step-title {
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .step-description {
-            color: #999;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
         /* Qualification Section */
         .qualification-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%);
@@ -457,6 +453,14 @@
             border-radius: 16px;
             margin: 40px auto;
             border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Brotherhood Protocol */
+        .brotherhood-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            padding: 50px 20px;
+            text-align: center;
+            margin: 60px 0;
         }
 
         /* Pricing - Full gold achievement */
@@ -517,14 +521,6 @@
             margin-left: 30px;
         }
 
-        /* Brotherhood Protocol */
-        .brotherhood-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
-            padding: 50px 20px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
         /* Final CTA - Gold success */
         .final-cta {
             background: linear-gradient(135deg, #2a1a0a 0%, #0a0a0a 100%);
@@ -561,6 +557,49 @@
         .final-cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .contact-options {
+            margin-top: 20px;
+        }
+
+        .contact-options summary {
+            color: #FFD700;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #1a1a1a;
+            border: 1px solid #CC5500;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #CC5500 0%, #FFD700 100%);
+            border: none;
+            color: #0a0a0a;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
         }
 
         /* Mobile Optimizations */
@@ -634,11 +673,6 @@
                 gap: 30px;
             }
 
-            .privacy-vault div {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
             .metrics-comparison {
                 grid-template-columns: 1fr;
             }
@@ -709,8 +743,8 @@
                 precision biomarker optimisation. No TRT. No guesswork. Just data.
             </p>
             <div class="cta-container">
-                <a href="#transformation" class="cta-button">See The Data →</a>
-                <a href="bloodwork.html" class="secondary-cta cta-button">View Real Results</a>
+                <a href="https://wa.me/447951430141?text=I%20want%20to%20discuss%20my%20symptoms%20and%20start%20the%2090-day%20programme." class="cta-button">Start Your Assessment →</a>
+                <a href="bloodwork.html" class="secondary-cta cta-button">See Client Results</a>
             </div>
             <div class="trust-bar">
                 <div class="trust-item">
@@ -793,6 +827,61 @@
         </div>
     </section>
 
+    <!-- Process Section - MOVED UP FOR LOGICAL FLOW -->
+    <section class="container">
+        <h2>Your 90-Day Biological Reconstruction</h2>
+        <p class="section-subtitle">
+            A systematic, data-driven approach to reversing decline.
+        </p>
+
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Week 1: Complete Biomarker Baseline</div>
+                    <div class="step-description">
+                        40+ biomarker comprehensive blood panel. Hormones, inflammation, 
+                        vitamins, metabolic markers. We measure everything that matters. 
+                        You'll be shocked at what's actually happening inside your body.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Week 2-6: Precision Protocol Implementation</div>
+                    <div class="step-description">
+                        Based on YOUR specific deficiencies, not generic advice. 
+                        Daily accountability via WhatsApp. Weekly video reviews to adjust. 
+                        No extreme measures - just targeted interventions that work.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Week 7: Mid-Point Testing & Calibration</div>
+                    <div class="step-description">
+                        Second blood panel to verify improvements. Most men see 20-30% 
+                        improvements already. We adjust protocols based on response rates. 
+                        This isn't guesswork - it's precision health.
+                    </div>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Week 12: Final Verification & Maintenance Plan</div>
+                    <div class="step-description">
+                        Complete blood panel proving your transformation. Average: 37% testosterone 
+                        increase, 40% inflammation reduction. You'll have the data and protocols 
+                        to maintain these improvements permanently.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Data Section -->
     <section class="container" id="transformation">
         <h2>The Numbers That Change Everything</h2>
@@ -831,42 +920,74 @@
             <div class="metrics-comparison">
                 <div class="metric-item">
                     <div class="metric-label">Energy Levels</div>
-                    <div class="metric-bar">
-                        <div class="metric-fill" style="width: 85%;"></div>
-                    </div>
-                    <div class="metric-values">
-                        <span class="before-value">Before: 4/10</span>
-                        <span class="after-value">After: 8.5/10</span>
+                    <div class="comparison-bars">
+                        <div class="before-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-before" style="width: 40%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #666;">Before: 4/10</div>
+                        </div>
+                        <span style="color: #CC5500; margin: 0 10px;">→</span>
+                        <div class="after-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-after" style="width: 85%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #FFD700;">After: 8.5/10</div>
+                        </div>
                     </div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-label">Mental Clarity</div>
-                    <div class="metric-bar">
-                        <div class="metric-fill" style="width: 80%;"></div>
-                    </div>
-                    <div class="metric-values">
-                        <span class="before-value">Before: 5/10</span>
-                        <span class="after-value">After: 8/10</span>
+                    <div class="comparison-bars">
+                        <div class="before-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-before" style="width: 50%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #666;">Before: 5/10</div>
+                        </div>
+                        <span style="color: #CC5500; margin: 0 10px;">→</span>
+                        <div class="after-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-after" style="width: 80%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #FFD700;">After: 8/10</div>
+                        </div>
                     </div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-label">Sleep Quality</div>
-                    <div class="metric-bar">
-                        <div class="metric-fill" style="width: 75%;"></div>
-                    </div>
-                    <div class="metric-values">
-                        <span class="before-value">Before: 4.5/10</span>
-                        <span class="after-value">After: 7.5/10</span>
+                    <div class="comparison-bars">
+                        <div class="before-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-before" style="width: 45%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #666;">Before: 4.5/10</div>
+                        </div>
+                        <span style="color: #CC5500; margin: 0 10px;">→</span>
+                        <div class="after-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-after" style="width: 75%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #FFD700;">After: 7.5/10</div>
+                        </div>
                     </div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-label">Recovery Speed</div>
-                    <div class="metric-bar">
-                        <div class="metric-fill" style="width: 90%;"></div>
-                    </div>
-                    <div class="metric-values">
-                        <span class="before-value">Before: 3/10</span>
-                        <span class="after-value">After: 9/10</span>
+                    <div class="comparison-bars">
+                        <div class="before-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-before" style="width: 30%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #666;">Before: 3/10</div>
+                        </div>
+                        <span style="color: #CC5500; margin: 0 10px;">→</span>
+                        <div class="after-bar">
+                            <div class="metric-bar">
+                                <div class="metric-fill-after" style="width: 90%;"></div>
+                            </div>
+                            <div class="metric-value" style="color: #FFD700;">After: 9/10</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -929,93 +1050,6 @@
         </div>
     </section>
 
-    <!-- Privacy Vault Section -->
-    <section class="container">
-        <div class="privacy-vault">
-            <h3 style="color: #FFD700; margin-bottom: 20px; text-align: center;">The Vault: What Stays Private</h3>
-            <p style="color: #999; margin-bottom: 30px; text-align: center;">
-                Some improvements we track publicly. Others stay strictly between us.
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
-                <div>
-                    <h4 style="color: #fff; margin-bottom: 15px;">Public Metrics (Share if you want):</h4>
-                    <ul style="color: #e0e0e0; line-height: 1.8; list-style: none;">
-                        <li>✓ Energy scores</li>
-                        <li>✓ Sleep quality</li>
-                        <li>✓ Workout PRs</li>
-                        <li>✓ Body composition</li>
-                        <li>✓ Mental clarity ratings</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color: #fff; margin-bottom: 15px;">Private Vault (Only you and I see):</h4>
-                    <ul style="color: #999; line-height: 1.8; list-style: none;">
-                        <li>🔒 Sexual health metrics</li>
-                        <li>🔒 Morning vitality indicators</li>
-                        <li>🔒 Relationship impacts</li>
-                        <li>🔒 Mood fluctuations</li>
-                        <li>🔒 Any metric you mark private</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="container">
-        <h2>Your 90-Day Biological Reconstruction</h2>
-        <p class="section-subtitle">
-            A systematic, data-driven approach to reversing decline.
-        </p>
-
-        <div class="process-timeline">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <div class="step-title">Week 1: Complete Biomarker Baseline</div>
-                    <div class="step-description">
-                        40+ biomarker comprehensive blood panel. Hormones, inflammation, 
-                        vitamins, metabolic markers. We measure everything that matters. 
-                        You'll be shocked at what's actually happening inside your body.
-                    </div>
-                </div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <div class="step-title">Week 2-6: Precision Protocol Implementation</div>
-                    <div class="step-description">
-                        Based on YOUR specific deficiencies, not generic advice. 
-                        Daily accountability via WhatsApp. Weekly video reviews to adjust. 
-                        No extreme measures - just targeted interventions that work.
-                    </div>
-                </div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <div class="step-title">Week 7: Mid-Point Testing & Calibration</div>
-                    <div class="step-description">
-                        Second blood panel to verify improvements. Most men see 20-30% 
-                        improvements already. We adjust protocols based on response rates. 
-                        This isn't guesswork - it's precision health.
-                    </div>
-                </div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <div class="step-title">Week 12: Final Verification & Maintenance Plan</div>
-                    <div class="step-description">
-                        Complete blood panel proving your transformation. Average: 37% testosterone 
-                        increase, 40% inflammation reduction. You'll have the data and protocols 
-                        to maintain these improvements permanently.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Qualification Section -->
     <section class="container">
         <div class="qualification-section">
@@ -1024,7 +1058,7 @@
                 <div>
                     <h4 style="color: #FFD700; margin-bottom: 20px;">✓ This IS for you if:</h4>
                     <ul style="color: #999; line-height: 1.8; list-style: none;">
-                        <li>• You earn £75K+ and value ROI on health</li>
+                        <li>• You're a high-performing individual who values ROI</li>
                         <li>• You'll submit blood work on schedule</li>
                         <li>• You want root causes fixed, not symptoms masked</li>
                         <li>• You can commit 30 minutes daily to protocols</li>
@@ -1037,7 +1071,7 @@
                         <li>• You want TRT or pharmaceutical shortcuts</li>
                         <li>• You can't invest 90 days in transformation</li>
                         <li>• You're looking for magic pills</li>
-                        <li>• You think £2,497 is expensive for biological age reversal</li>
+                        <li>• You're not ready to invest in your health</li>
                         <li>• You're comfortable with slow decline</li>
                     </ul>
                 </div>
@@ -1112,6 +1146,17 @@
                 Start My Transformation →
             </a>
 
+            <details class="contact-options">
+                <summary>Prefer email? Click here</summary>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone (Optional)">
+                    <textarea name="message" placeholder="Main health concern" rows="3"></textarea>
+                    <button type="submit">Send Enquiry</button>
+                </form>
+            </details>
+
             <p style="text-align: center; color: #666; margin-top: 20px;">
                 Payment plans available. Limited to 12 men per month.
             </p>
@@ -1161,10 +1206,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const fills = entry.target.querySelectorAll('.metric-fill');
-                    fills.forEach(fill => {
-                        fill.style.width = fill.style.width;
-                    });
+                    // Trigger animations for metric fills
                 }
             });
         }, observerOptions);
